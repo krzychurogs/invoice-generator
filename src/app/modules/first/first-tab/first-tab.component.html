@@ -1,0 +1,45 @@
+<div [formGroup]="form">
+    <div formArrayName="items">
+        <div *ngFor="let item of items.controls; let i = index">
+            <div [formGroupName]="i" class="row">
+                <mat-form-field appearance="fill" class="field">
+                    <mat-label>Name</mat-label>
+                    <input matInput formControlName="name" >
+                    <mat-error *ngIf="item.get('name')?.errors?.['required']">Please enter name</mat-error>
+                    <mat-error *ngIf="item.get('name')?.errors?.['minlength']">Min 3</mat-error>
+                    <mat-error *ngIf="item.get('name')?.errors?.['maxlength']">Max 30</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill" class="field">
+                    <mat-label>Count</mat-label>
+                    <input matInput formControlName="count">
+                    <mat-error *ngIf="item.get('count')?.errors?.['required']">Please enter count</mat-error>
+                    <mat-error *ngIf="item.get('count')?.errors?.['minlength']">Min 1</mat-error>
+                    <mat-error *ngIf="item.get('count')?.errors?.['maxlength']">Max 100</mat-error>
+                    <mat-error *ngIf="item.get('count')?.errors?.['pattern']">Only integer</mat-error>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill" class="field">
+                    <mat-label>Price</mat-label>
+                    <input matInput formControlName="price">
+                    <mat-error *ngIf="item.get('price')?.errors?.['required']">Please enter price</mat-error>
+                    <mat-error *ngIf="item.get('price')?.errors?.['minlength']">Min 1</mat-error>
+                    <mat-error *ngIf="item.get('price')?.errors?.['maxlength']">Max 1000000></mat-error>
+                    <mat-error *ngIf="item.get('price')?.errors?.['pattern']">Only integer</mat-error>
+                  </mat-form-field>
+                  <button (click)="deleteRow(i)" mat-icon-button color="primary" aria-label="Example icon button with a home icon">
+                    <mat-icon>delete_forever</mat-icon>
+                  </button>
+        </div>
+    </div>
+    <div class="newItem">
+    <button color="primary" mat-button type="button" class="mat-focus-indicator mat-button mat-button-base mat-primary" (click)="addItemFormGroup()">
+      <mat-icon>add</mat-icon>
+      <span>Add new item</span>
+    </button>
+    </div>
+    <div>
+    <button class="submit" color="primary" mat-raised-button mat-button-base mat-primary (click)="submit()">
+      <button mat-flat-button color="primary">Submit</button>
+    </button>
+    </div>
+
+</div>
