@@ -14,7 +14,7 @@ export class InvoiceService {
   }
 
   get invoiceData$() {
-      return this.invoice;
+      return this.invoice.asObservable();
   }
 
   nextInvoice(next: IProduct[]) {
