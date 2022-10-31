@@ -13,7 +13,7 @@ import {MatListModule} from '@angular/material/list';
 @NgModule({
   declarations: [
     AppComponent,
-    MainLayoutComponent
+    MainLayoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +24,7 @@ import {MatListModule} from '@angular/material/list';
     MatToolbarModule,
     MatSidenavModule
   ],
+  exports: [],
   providers: [],
   bootstrap: [AppComponent]
 })

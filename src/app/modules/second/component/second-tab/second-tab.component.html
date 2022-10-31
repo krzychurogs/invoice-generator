@@ -1,7 +1,7 @@
 <div class="container">
 <h1>{{data.name}}</h1>
 <h2>{{data.address}}</h2>
-<p>{{phones}}</p>
+<p>{{data.phones | spaceData:', '}}</p>
 <hr>
 <ng-container *ngIf="dataSource.length !== 0; else noItems ">
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z6 table">

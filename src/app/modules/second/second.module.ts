@@ -5,17 +5,18 @@ import { SecondRoutingModule } from './second-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 import { SecondService } from './service/second.service';
 import {MatTableModule} from '@angular/material/table';
+import { SpaceDataPipe } from 'src/app/shared/pipe/space-data.pipe';
 
 @NgModule({
   declarations: [
-    SecondTabComponent
+    SecondTabComponent,
+    SpaceDataPipe
   ],
   imports: [
     CommonModule,
     SecondRoutingModule,
     HttpClientModule,
     MatTableModule
-    
   ],
   providers: [SecondService]
 })

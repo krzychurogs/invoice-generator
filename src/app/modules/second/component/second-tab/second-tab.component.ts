@@ -24,13 +24,10 @@ export class SecondTabComponent extends BaseComponent implements OnInit  {
   };
   displayedColumns: string[] = ['name', 'count', 'price'];
   dataSource: IProduct[] = [];
-  phones: string[] = [];
 
   ngOnInit(): void {
     this.secondService.getConfig().pipe(takeUntil(this.destroy$)).subscribe(item => {
       this.data = item;
-      this.phones = item.phones;
-      this.phones.join(",");
     });
     
     this.invoiceService.invoiceData$.pipe(takeUntil(this.destroy$)).subscribe(invoice => {
